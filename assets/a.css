@@ -1,0 +1,11 @@
+ 
+body{
+    color: silver;
+    font-weight: bold;
+}
+#box{
+    background-image: url('../assets/logo.jpg');
+    width:100px;
+    height:60px;
+    background-size:100%;
+}
