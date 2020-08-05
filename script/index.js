@@ -3,9 +3,14 @@ import cjs from './c.js';
 import '../assets/index.less'
 
 const AAA = () => {
-    document.write(ajs.init())
-    document.write(ajs.cinit())
-    document.write(cjs.init())
+    // document.write('index entry')
+    // document.write(ajs.init())
+    // document.write(ajs.cinit())
+    // document.write(cjs.init())
+
+    const div = document.createElement('div')
+    div.innerText = 'index entry | ' + ajs.init() + ajs.cinit() + cjs.init();
+    document.getElementById('box').after(div)
 }
 
 AAA();
