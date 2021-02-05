@@ -9,3 +9,27 @@ body{
     height:60px;
     background-size:100%;
 }
+
+.page1{
+    width:100px;
+    height:100px;
+    display:flex;
+    transform: scale(0.5);
+    border-radius:10px;
+    transform-origin:left top;
+    background:red;
+}
+.page2{
+    width:100px;
+    height:100px;
+    display:flex;
+    transform: scale(0.8);
+    background:blue;
+}
+.page3{
+    width:100px;
+    height:100px;
+    display:flex;
+    transform: scale(0.2);
+    background:purple;
+}

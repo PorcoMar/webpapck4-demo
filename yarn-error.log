@@ -1,0 +1,58 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add uglifyjs-webpack-plugin
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/porco_mar/phantomjs-2.1.1-macosx/bin:/Users/porco_mar/arc/arcanist/bin:/Users/porco_mar/phantomjs-2.1.1-macosx/bin:/Users/porco_mar/arc/arcanist/bin
+
+Yarn version: 
+  1.6.0
+
+Node version: 
+  11.0.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EINVAL: invalid argument, unlink '/Users/porco_mar/Desktop/ZM-prictice/webpapck4-demo/node_modules/chalk/node_modules/supports-color'
+
+npm manifest: 
+  {
+    "name": "webpack-demo",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "webpack --mode development",
+      "dev": "webpack-dev-server --config webpack.dev.js",
+      "build": "webpack --config webpack.prod.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "clean-webpack-plugin": "^3.0.0",
+      "css-loader": "^4.2.0",
+      "extract-text-webpack-plugin": "^3.0.2",
+      "file-loader": "^6.0.0",
+      "html-webpack-plugin": "^4.3.0",
+      "less-loader": "^6.2.0",
+      "style-loader": "^1.2.1",
+      "uglifyjs-webpack-plugin": "^2.2.0",
+      "url-loader": "^4.1.0",
+      "webpack": "^4.44.1",
+      "webpack-cli": "^3.3.12",
+      "webpack-dev-server": "^3.11.0",
+      "webpack-merge": "^5.1.1"
+    },
+    "dependencies": {
+      "lodash": "^4.17.19"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
