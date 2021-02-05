@@ -1,4 +1,5 @@
 const path = require("path");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const development = process.env.NODE_ENV === 'development';
 const production = process.env.NODE_ENV === 'production';
 console.log('development', development)
@@ -13,22 +14,31 @@ module.exports = {
     path: path.join(__dirname, "dist")
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(css|less)$/,
         // use : ['style-loader', 'css-loader', 'less-loader', 'postcss-loader'] // 处理css的loader 按照数组顺序将资源交给loader处理
+        // use: [{
+        //     loader: 'style-loader'
+        //   },
+        //   {
+        //     loader: 'css-loader'
+        //   },
+        //   {
+        //     loader: 'less-loader'
+        //   },
+        //   {
+        //     loader: 'postcss-loader'
+        //   }
+        // ]
         use: [{
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'less-loader'
-          },
-          {
-            loader: 'postcss-loader'
+          loader: MiniCssExtractPlugin.loader, // MiniCssExtractPlugin 将css分离出来 webpack4新特性（废除extract-text-webpack-plugin）
+          options: {
+            publicPath: '../'
           }
-        ]
+        },
+        'css-loader', 'less-loader'
+      ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -58,10 +68,12 @@ module.exports = {
           }
         }
       },
-      {
-        test: /\.ts$/,
-        use: 'ts-loader'
-      }
     ]
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    })
+  ]
 }
