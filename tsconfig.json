@@ -1,0 +1,6 @@
+{
+  "compolerOptions": {
+    "target": "es5",
+    "sourceMap": true
+  }
+}

@@ -35,11 +35,12 @@ module.exports = {
         use: [{
           loader: 'url-loader',
           options: {
-            outputPath: 'images/', // 生成路径 dist/images/
-            limit: 100000 // 小于1000b的文件转换为base64
+            name: '[name].[ext]',  // 配置了name生成的图片和原名保持一致 不配置则是hash乱码
+            outputPath: './images/', // 生成路径 dist/images/
+            limit: 100000 // 小于1000b的文件转换为base64以减少http请求
           }
         }],
-        include: /assets/ //只会转化asstes下的图片 避免加载
+        include: /assets/ //只会转化asstes下的图片
       },
       {
         test: /\.js$/,
@@ -48,16 +49,19 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true, //启动缓存机制，在重复打包未改变过的模块时防止二次编译，也会加快打包速度
-            // presets: ['@babel/preset-env']
-            presets: [
-              ['env', {
-                modules: false
-              }]
-            ] // 由于@bebel/preset-env会将es6Module转化为CommomJS，这会导致webpack中的tree-shaking失效，将modules设为false会禁用募模块化语句的转化，而将es6dModule语法交给webpack处理
+            presets: ['@babel/preset-env']
+            // presets: [
+            //   ['env', {
+            //     modules: false
+            //   }]
+            // ] // 由于@bebel/preset-env会将es6Module转化为CommomJS，这会导致webpack中的tree-shaking失效，将modules设为false会禁用募模块化语句的转化，而将es6dModule语法交给webpack处理
           }
         }
       },
-      
+      {
+        test: /\.ts$/,
+        use: 'ts-loader'
+      }
     ]
   }
 }
